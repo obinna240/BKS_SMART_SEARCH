@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/data/mongo
+		http://www.springframework.org/schema/data/mongo/spring-mongo-1.4.xsd">
+	
+	<bean id="solrQueryUtils" class="org.pcg.bucks_ss.solr.utils.SolrQueryUtils">
+		<property name="queryParameters" ref="queryParameters" />
+		<property name="gridOperations" ref="gridFsTemplate" />
+	</bean>
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="queryParameters" class="org.pcg.bucks_ss.solr.utils.QueryParameters">
+		<property name="stopwords">
+			<list>
+				<value>a</value>
+				<value>and</value>
+				<value>Mr</value>
+				<value>Mrs</value>
+				<value>Miss</value>
+				<value>Mister</value>
+				<value>are</value>
+				<value>as</value>
+				<value>at</value>
+				<value>be</value>
+				<value>but</value>
+				<value>by</value>
+				<value>hasnt</value>
+				<value>did</value>
+				<value>b</value>
+				<value>c</value>
+				<value>d</value>
+				<value>e</value>
+				<value>f</value>
+				<value>g</value>
+				<value>q</value>
+				<value>doesn</value>
+				<value>doesn't</value>
+				<value>shouldn't</value>
+				<value>wouldn't</value>
+				<value>couldn't</value>
+				<value>won't</value>
+				<value>isn't</value>
+				<value>isn</value>
+				<value>couldn</value>
+				<value>shouldn</value>
+				<value>wouldn</value>
+				<value>ll</value>
+				<value>rh</value>
+				<value>my</value>
+				<value>cant</value>
+				<value>maybe</value>
+				<value>for</value>
+				<value>if</value>
+				<value>in</value>
+				<value>is</value>
+				<value>it</value>
+				<value>get</value>
+				<value>ie</value>
+				<value>thee</value>
+				<value>i.e</value>
+				<value>no</value>
+				<value>not</value>
+				<value>out</value>
+				<value>in</value>
+				<value>up</value>
+				<value>of</value>
+				<value>on</value>
+				<value>or</value>
+				<value>s</value>
+				<value>such</value>
+				<value>been</value>
+				<value>before</value>
+				<value>do</value>
+				<value>done</value>
+				<value>had</value>
+				<value>has</value>
+				<value>me</value>
+				<value>must</value>
+				<value>that</value>
+				<value>the</value>
+				<value>their</value>
+				<value>then</value>
+				<value>there</value>
+				<value>these</value>
+				<value>being</value>
+				<value>couldn't</value>
+				<value>eg</value>
+				<value>e.g</value>
+				<value>he</value>
+				<value>she</value>
+				<value>few</value>
+				<value>they</value>
+				<value>this</value>
+				<value>to</value>
+				<value>was</value>
+				<value>i</value>
+				<value>am</value>
+				<value>even</value>
+				<value>onto</value>
+				<value>also</value>
+				<value>all</value>
+				<value>about</value>
+				<value>elsewhere</value>
+				<value>most</value>
+				<value>almost</value>
+				<value>alone</value>
+				<value>along</value>
+				<value>already</value>
+				<value>although</value>
+				<value>always</value>
+				<value>among</value>
+				<value>ever</value>
+				<value>amongst</value>
+				<value>each</value>
+				<value>got</value>
+				<value>t</value>
+				<value>m</value>
+				<value>etc</value>
+				<value>hereafter</value>
+				<value>hereby</value>
+				<value>herein</value>
+				<value>hereupon</value>
+				<value>hers</value>
+				<value>him</value>
+				<value>his</value>
+				<value>how</value>
+				<value>inc</value>
+				<value>its</value>
+				<value>it</value>
+				<value>meanwhile</value>
+				<value>might</value>
+				<value>moreover</value>
+				<value>don</value>
+				<value>my</value>
+				<value>myself</value>
+				<value>neither</value>
+				<value>nevertheless</value>
+				<value>no</value>
+				<value>nor</value>
+				<value>not</value>
+				<value>now</value>
+				<value>nowhere</value>
+				<value>of</value>
+				<value>off</value>
+				<value>often</value>
+				<value>ten</value>
+				<value>our</value>
+				<value>ours</value>
+				<value>in</value>
+				<value>re</value>
+				<value>so</value>
+				<value>than</value>
+				<value>that</value>
+				<value>them</value>
+				<value>this</value>
+				<value>those</value>
+				<value>thru</value>
+				<value>thus</value>
+				<value>too</value>
+				<value>us</value>
+				<value>very</value>
+				<value>was</value>
+				<value>we</value>
+		
+			</list>
+		</property>
+		<property name="query">
+			<map value-type="java.util.List">
+				
+				<entry key="serverFile">
+					<list>
+						<value>/Bucks_ss_files/</value>
+						
+						
+						<value>E:/Bucks_documents</value>
+					
+					</list>
+				</entry>
+				
+				<entry key="smartSuggest">
+					<list>
+						<value>q</value>
+						<value>qt</value>
+						<value>/smartSuggest</value>
+						
+					</list>
+				</entry>
+				
+				<entry key="normalSearch">
+					<list>
+						<value>q</value>
+						<value>qt</value>
+						<value>/normalSearch</value>
+						
+					</list>
+				</entry>
+				
+				<entry key="recentUploads">
+					<list>
+						<value>q</value>
+						<value>*:*</value>
+						<value>id, dateOfUpload, docGroup, dTitle, author, docType, dateOfPublicationString, docVersion, documentUrl</value>
+						<value>dateOfUpload</value>
+						<value>15</value>
+						<value>docType:FullBody</value>
+					</list>
+				</entry>
+				
+				<entry key="basicSearch">
+					<list>
+						
+						<value>dateOfUpload</value>
+					</list>
+				</entry>
+				
+				<entry key="smartSuggestFields">
+					<list>
+						<value>Author</value>
+						<value>Organization</value>
+						<value>Place</value>
+						<value>Person</value>
+						<value>Document</value>
+						
+						<value>CareAct_Directive</value>
+						<value>CareAct_Summary</value>
+						<value>Keyword</value>
+						<value>Hints</value>
+						<value>Topic</value>
+					</list>
+				</entry>
+				
+				<entry key="resultFields">
+					<list>
+						<value>author</value>
+												
+						<value>body</value>
+						
+						<value>docType</value>
+						<value>docType2</value>
+						<value>docGroup</value>
+						<value>documentUrl</value>
+						
+						<value>keyword_string</value>
+						
+						<value>owner</value>
+						
+						<value>other_title</value>
+						
+						<value>title</value>
+						<value>listOfTitles</value>
+						
+						<value>chapterTitle</value>
+						<value>partTitle</value>
+						<value>partOfDocTitle</value>
+						<value>partOfDocBody</value>
+						
+						
+						<value>associatedEmails</value>
+						<value>associatedUrls</value>
+						<value>imageUrl</value>
+						
+						
+					</list>
+				</entry>
+				
+				<entry key="queryFields">
+					<list>
+						<value>author</value>
+						<value>organizationEntities</value>
+						<value>placeEntities</value>
+						<value>personEntities</value>
+						<value>title</value>
+						
+						<value>docType</value>
+						<value>keyword</value>
+						
+						<value>body</value>
+						
+						<value>docType</value>
+						<value>docType2</value>
+						<value>docGroup</value>
+						<value>documentUrl</value>
+						
+						
+						<value>owner</value>
+						
+						<value>other_title</value>
+						
+						<value>listOfTitles</value>
+						
+						<value>chapterTitle</value>
+						<value>partTitle</value>
+						<value>partOfDocTitle</value>
+						<value>partOfDocBody</value>
+						
+						
+						<value>associatedEmails</value>
+						<value>associatedUrls</value>
+						<value>imageUrl</value>
+						
+						
+					</list>
+				</entry>
+				<entry key="facetFields">
+					<list>
+						<value>docGroup</value>
+						<value>docType</value>
+						<value>author</value>
+						<value>associatedUrls</value>
+						<value>owner</value>
+												
+						
+					</list>
+				</entry>
+				
+			</map>
+		</property>
+		
+		<property name="solrQueryUrl">
+			<value>http://semantic.search.systemassociates.co.uk/solr/collection5</value>
+		</property>
+		
+		<property name="solrSmartSuggestUrl">
+			<value>http://semantic.search.systemassociates.co.uk/solr/collection6</value>
+		</property>
+	</bean>
+	
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+	</bean>
+	
+	<bean name="gridFsTemplate"
+		class="org.springframework.data.mongodb.gridfs.GridFsTemplate">
+		<constructor-arg ref="mongoDbFactory" />
+		<constructor-arg ref="converter" />
+	</bean>
+	
+	<mongo:mongo host="172.30.128.155" port="27017" />
+	<mongo:db-factory dbname="Bucks" host="172.30.128.155" port="27017" />
+	<mongo:mapping-converter id="converter" />
+	
+</beans>

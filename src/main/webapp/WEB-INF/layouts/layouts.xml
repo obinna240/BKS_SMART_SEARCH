@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+		
+	  <definition name="results" template="/WEB-INF/layouts/resultMaster.jsp">
+	  
+	  	<put-attribute name="nav" value="/WEB-INF/views/default/nav.jsp"  />
+	  
+	    <put-attribute name="header" value="/WEB-INF/views/default/header.jsp" />
+	    
+	   	    
+	    <put-attribute name="footer" value="/WEB-INF/views/default/footer.jsp" />
+	    
+	  </definition> 
+
+
+
+	 <definition name="homePage" template="/WEB-INF/layouts/homePageMaster.jsp">
+	   
+	  	<put-attribute name="nav" value="/WEB-INF/views/default/nav.jsp"  />
+	  
+	    <put-attribute name="searchForm" value="/WEB-INF/views/default/header.jsp" />
+	   	       
+	    <put-attribute name="footer" value="/WEB-INF/views/default/footer.jsp" />
+	    
+	  </definition> 
+	  
+
+  
+   <!-- 
+   <definition name="semantris_default" template="/WEB-INF/layouts/semantris_default.jsp" />
+   
+  <definition name="retrieverDefault" template="/WEB-INF/layouts/retrieverDefault.jsp">
+    <put-attribute name="header" value="/WEB-INF/views/retrieverDefault/header.jsp" />
+    <put-attribute name="nav" value="/WEB-INF/views/retrieverDefault/nav.jsp"  />
+    <put-attribute name="footer" value="/WEB-INF/views/retrieverDefault/footer.jsp" />
+  </definition>
+  -->
+   
+   
+    <!-- put-attribute name="header" value="/WEB-INF/views/retrieverDefault/header.jsp" / -->
+    <!--put-attribute name="nav" value="/WEB-INF/views/retrieverDefault/nav.jsp"  /-->
+    <!--  <put-attribute name="footer" value="/WEB-INF/views/retrieverDefault/footer.jsp" /> -->
+  <!--</definition>-->
+ 
+</tiles-definitions>

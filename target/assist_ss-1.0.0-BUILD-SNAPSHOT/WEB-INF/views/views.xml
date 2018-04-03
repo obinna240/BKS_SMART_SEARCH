@@ -1,0 +1,45 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	
+		
+	
+	<definition name="home" extends="homePage">		
+		
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+	</definition> 
+	
+	
+	<definition name="result" extends="results">
+	
+	  
+	  
+	   
+	   
+	    <put-attribute name="leftNav" value="/WEB-INF/views/nav/leftNav.jsp" />
+	    
+	    <put-attribute name="body" value="/WEB-INF/views/result/result.jsp" />
+	    
+	   
+	    
+	  </definition> 
+	
+	<!-- 
+	<definition name="home" extends="default">		
+		comment out<put-attribute name="body" value="/WEB-INF/views/index.jsp" /> 
+		<put-attribute name="body" value="bodys" />
+	</definition> 
+	
+	<definition name="home" template="/WEB-INF/views/home.jsp" />
+	
+	<definition name="bodys" template="/WEB-INF/views/index.jsp">		
+		<put-attribute name="basicform" value="/WEB-INF/views/search/semantrisBasicSearch/basicform.jsp" />
+	</definition> 
+	
+	<definition name="blankbodys" template="/WEB-INF/views/blankIndex.jsp">		
+		<put-attribute name="basicform" value="/WEB-INF/views/search/semantrisBasicSearch/basicform.jsp" />
+	</definition> 
+	
+ -->
+	
+		 			
+</tiles-definitions>
